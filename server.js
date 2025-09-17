@@ -353,8 +353,6 @@ process.on('SIGINT', () => {
     process.exit();
 });
 
-// Badle ye line:
-const PORT = 5000;
-
-// Isse:
-const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+    console.log(`Server running on http://localhost:${PORT}`);
+});
