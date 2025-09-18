@@ -1,7 +1,7 @@
 {
   "name": "mr-sharabi-whatsapp-tool",
   "version": "1.0.0",
-  "description": "🦋 MR SHARABI WhatsApp Tool 🦋",
+  "description": "🦋 MR WALEED WhatsApp Tool 🦋",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
