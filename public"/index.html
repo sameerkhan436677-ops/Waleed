@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🦋𝗠𝗥 𝗦𝗛𝗔𝗥𝗔𝗕𝗜 𝗪𝗣 𝗧𝗢𝗢𝗟 🦋</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Bebas+Neue&family=Goldman&display=swap');
+
+        :root {
+            --bg-color: #0d0d0d;
+            --container-bg: rgba(18, 18, 18, 0.95);
+            --box-bg: rgba(28, 28, 28, 0.85);
+            --border-color: #34d399; /* Emerald Green */
+            --heading-color: #34d399; /* Emerald Green */
+            --sub-heading-color: #6ee7b7; /* Lighter Green */
+            --text-color: #e5e7eb; /* Off-white */
+            --input-bg: #1f2937;
+            --input-border: #4b5563;
+            --input-focus: #10b981;
+            --button-main-start: #34d399;
+            --button-main-end: #10b981;
+            --button-text: #111827;
+            --button-stop-start: #ef4444; /* Red */
+            --button-stop-end: #dc2626;
+            --shadow-light: rgba(52, 211, 153, 0.3);
+            --shadow-dark: rgba(0, 0, 0, 0.8);
+            --font-main: 'Poppins', sans-serif;
+            --font-heading: 'Bebas Neue', sans-serif;
+            --font-display: 'Goldman', sans-serif;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 10px;
+            min-height: 100vh;
+            overflow-x: hidden;
+            
+            /* Display:flex waale lines hata diye gaye hain */
+            
+            /* Dynamic Glowing Grid Background */
+            background-image: 
+                radial-gradient(ellipse at center, #1a0d00 0%, transparent 70%),
+                repeating-linear-gradient(0deg, #1c1c1c 0px, #1c1c1c 1px, transparent 1px, transparent 40px),
+                repeating-linear-gradient(90deg, #1c1c1c 0px, #1c1c1c 1px, transparent 1px, transparent 40px);
+            background-size: cover, auto, auto;
+            background-position: center, 0 0, 0 0;
+            animation: pulse-glow 10s infinite ease-in-out;
+        }
+
+        @keyframes pulse-glow {
+            0% { box-shadow: 0 0 10px rgba(52, 211, 153, 0.1); }
+            50% { box-shadow: 0 0 20px rgba(52, 211, 153, 0.3); }
+            100% { box-shadow: 0 0 10px rgba(52, 211, 153, 0.1); }
+        }
+
+        .container {
+            max-width: 700px;
+            width: 100%;
+            margin: 30px auto; /* Horizontal center aur upar niche gap ke liye */
+            padding: 30px;
+            background: var(--container-bg);
+            box-shadow: 0 15px 30px var(--shadow-dark), inset 0 0 20px rgba(52, 211, 153, 0.05);
+            border-radius: 20px;
+            border: 2px solid var(--border-color);
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            transform: scale(0.95);
+            animation: fadeInScale 0.8s ease-out forwards;
+        }
+
+        @keyframes fadeInScale {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .box {
+            background: var(--box-bg);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            border: 1px solid rgba(52, 211, 153, 0.2);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5), inset 0 0 10px rgba(52, 211, 153, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.8), inset 0 0 15px rgba(52, 211, 153, 0.2);
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--heading-color);
+            font-family: var(--font-heading);
+            font-size: 3em;
+            text-shadow: 0 0 15px var(--heading-color), 0 0 5px var(--sub-heading-color);
+            margin-bottom: 30px;
+            letter-spacing: 3px;
+        }
+
+        h2, h3 {
+            color: var(--sub-heading-color);
+            margin-top: 0;
+            border-left: 4px solid var(--heading-color);
+            padding-left: 15px;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            letter-spacing: 1px;
+            font-family: var(--font-display);
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            border: 1px solid var(--input-border);
+            border-radius: 10px;
+            background: var(--input-bg);
+            color: var(--text-color);
+            font-size: 1em;
+            transition: all 0.3s ease;
+            box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--input-focus);
+            box-shadow: 0 0 0 3px rgba(52, 211, 153, 0.3), inset 0 0 5px rgba(52, 211, 153, 0.2);
+        }
+
+        input::placeholder, textarea::placeholder {
+            color: #666;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            font-size: 1.1em;
+            font-weight: bold;
+            color: var(--button-text);
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            background: linear-gradient(45deg, var(--button-main-start), var(--button-main-end));
+            box-shadow: 0 5px 15px var(--shadow-light);
+            text-transform: uppercase;
+        }
+        
+        button:hover {
+            transform: scale(1.03);
+            background: linear-gradient(45deg, var(--button-main-end), var(--button-main-start));
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+        }
+
+        button.stop-button {
+            background: linear-gradient(45deg, var(--button-stop-start), var(--button-stop-end));
+            color: #fff;
+        }
+        button.stop-button:hover {
+            background: linear-gradient(45deg, var(--button-stop-end), var(--button-stop-start));
+        }
+
+        .task-id-display, .group-list, .get-groups-form {
+            background: rgba(30, 30, 30, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            border: 1px dashed var(--heading-color);
+            display: none;
+            word-wrap: break-word;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        #pairingResult {
+            text-align: center;
+            padding: 20px;
+            background: rgba(30, 30, 30, 0.8);
+            border-radius: 10px;
+            border: 1px dashed var(--heading-color);
+            margin-top: 15px;
+            color: #e5e7eb;
+        }
+        
+        .active-sessions {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            text-align: center;
+            padding: 20px;
+            background: rgba(30, 30, 30, 0.8);
+            border: 1px dashed var(--heading-color);
+            border-radius: 10px;
+            margin-top: 25px;
+        }
+
+        .status-item {
+            padding: 10px;
+            border: 1px solid rgba(52, 211, 153, 0.2);
+            border-radius: 8px;
+            background: rgba(40, 40, 40, 0.6);
+            box-shadow: inset 0 0 5px rgba(0,0,0,0.3);
+        }
+        .status-item h3 {
+            margin: 0;
+            font-size: 1.1em;
+            color: var(--heading-color);
+            border-left: none;
+            padding-left: 0;
+            text-shadow: 0 0 5px rgba(52, 211, 153, 0.5);
+        }
+        .status-item span {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: var(--heading-color);
+            display: block;
+            margin-top: 5px;
+            font-family: var(--font-display);
+            text-shadow: 0 0 8px #34d399;
+        }
+
+        .group-item {
+            padding: 12px;
+            border-bottom: 1px solid rgba(52, 211, 153, 0.2);
+            background: rgba(25, 25, 25, 0.6);
+            border-radius: 6px;
+            margin-bottom: 8px;
+        }
+
+        .group-item:last-child {
+            border-bottom: none;
+        }
+        .group-item strong {
+            color: var(--heading-color);
+        }
+
+        .owner-info {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(10, 10, 10, 0.95);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px var(--shadow-light);
+            border: 1px solid var(--border-color);
+        }
+        .owner-info h2 {
+            color: var(--heading-color);
+            font-size: 1.6em;
+            border-left: none;
+            border-bottom: 2px solid rgba(52, 211, 153, 0.5);
+            padding-left: 0;
+            padding-bottom: 5px;
+        }
+        .owner-info p {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: var(--heading-color);
+            margin: 8px 0 0;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            h1 {
+                font-size: 2.2em;
+            }
+            h2 {
+                font-size: 1.3em;
+            }
+            .active-sessions {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🦋𝗠𝗥 𝗦𝗛𝗔𝗥𝗔𝗕𝗜 𝗪𝗣 𝗧𝗢𝗢𝗟 🦋</h1>
+        
+        <div class="box">
+            <form id="pairingForm">
+                <h2>Pairing</h2>
+                <input type="text" id="numberInput" name="number" placeholder="Enter Your WhatsApp Number (with country code)" required>
+                <button type="button" onclick="generatePairingCode()">Generate Pairing Code</button>
+            </form>
+            <div id="pairingResult"></div>
+        </div>
+
+        <div class="box">  
+            <h2>Start Sending Messages</h2>
+            <form action="/send-message" method="POST" enctype="multipart/form-data">  
+                <select name="targetType" required>  
+                    <option value="">-- Select Target Type --</option>  
+                    <option value="number">Target Number</option>  
+                    <option value="group">Group UID</option>  
+                </select>  
+                <input type="text" name="target" placeholder="Enter Target Number / Group UID" required>  
+                <input type="file" name="messageFile" accept=".txt" required>  
+                <input type="text" name="prefix" placeholder="Enter Message Prefix (optional)">  
+                <input type="number" name="delaySec" placeholder="Delay in Seconds (between messages)" min="1" required>  
+                <button type="submit">Start Sending Messages</button>  
+            </form>  
+        </div>  
+
+        <div class="box">  
+            <h2>Get My Groups</h2>
+            <button type="button" onclick="showGroupForm()">Get My Groups</button>
+            <div id="getGroupsForm" class="get-groups-form">
+                <input type="text" id="groupNumberInput" placeholder="Enter your connected WhatsApp number">
+                <button type="button" onclick="getGroups()">Get Group UIDs</button>
+            </div>
+            <div id="groupList" class="group-list">
+                <h3>Your Groups:</h3>
+                <div id="groupsOutput"></div>
+            </div>
+        </div>
+
+        <div class="box">  
+            <h2>Check or Stop Task</h2>
+            <form id="showTaskForm">
+                <button type="button" onclick="showMyTaskId()">Show My Task ID</button>
+                <div id="taskIdDisplay" class="task-id-display"></div>
+            </form>
+            <form action="/stop-task" method="POST">  
+                <input type="text" name="taskId" placeholder="Enter Your Task ID to Stop" required>  
+                <button type="submit" class="stop-button">Stop My Task</button>  
+            </form>  
+        </div>  
+
+        <div class="active-sessions">  
+            <div class="status-item">  
+                <h3>Active Users</h3>  
+                <span id="activeUsersCount">0</span>  
+            </div>
+            <div class="status-item">
+                <h3>Active Sessions</h3>  
+                <span id="activeClientsCount">0</span>  
+            </div>
+            <div class="status-item">
+                <h3>Active Tasks</h3>  
+                <span id="activeTasksCount">0</span>  
+            </div>
+        </div>  
+
+        <div class="owner-info">
+            <h2>OWNER NO</h2>
+            <p>9024870456</p>
+        </div>
+    </div>
+
+    <script>
+        function showGroupForm() {
+            document.getElementById('getGroupsForm').style.display = 'block';
+        }
+
+        async function generatePairingCode() {
+            const number = document.getElementById('numberInput').value;
+            if (!number) {
+                alert('Please enter a valid WhatsApp number');
+                return;
+            }
+            const response = await fetch('/code?number=' + encodeURIComponent(number));
+            const result = await response.text();
+            document.getElementById('pairingResult').innerHTML = result;
+        }
+        
+        function showMyTaskId() {
+            const taskId = localStorage.getItem('wa_task_id');
+            const displayDiv = document.getElementById('taskIdDisplay');
+            
+            if (taskId) {
+                displayDiv.innerHTML = '<h3>Your Task ID:</h3><h2>' + taskId + '</h2>';
+                displayDiv.style.display = 'block';
+            } else {
+                displayDiv.innerHTML = '<p>No active task found. Please start a message sending task first.</p>';
+                displayDiv.style.display = 'block';
+            }
+        }
+        
+        async function getGroups() {
+            const number = document.getElementById('groupNumberInput').value;
+            if (!number) {
+                alert('Please enter your WhatsApp number to get group list.');
+                return;
+            }
+            const response = await fetch('/get-groups?number=' + encodeURIComponent(number));
+            const result = await response.json();
+            const groupsOutput = document.getElementById('groupsOutput');
+            const groupListDiv = document.getElementById('groupList');
+
+            if (result.error) {
+                groupsOutput.innerHTML = `<p style="color:red;">Error: ${result.error}</p>`;
+                groupListDiv.style.display = 'block';
+                return;
+            }
+            
+            if (result.groups && result.groups.length > 0) {
+                groupsOutput.innerHTML = '';
+                result.groups.forEach(group => {
+                    groupsOutput.innerHTML += `
+                        <div class="group-item">
+                            <strong>Name:</strong> ${group.name}<br>
+                            <strong>UID:</strong> ${group.uid}
+                        </div>
+                    `;
+                });
+                groupListDiv.style.display = 'block';
+            } else {
+                groupsOutput.innerHTML = `<p>No groups found or not connected for this number.</p>`;
+                groupListDiv.style.display = 'block';
+            }
+        }
+        
+        async function updateStatus() {
+            try {
+                const response = await fetch('/status');
+                const data = await response.json();
+                document.getElementById('activeUsersCount').textContent = data.activeUsers;
+                document.getElementById('activeClientsCount').textContent = data.activeClients;
+                document.getElementById('activeTasksCount').textContent = data.activeTasks;
+            } catch (error) {
+                console.error('Error fetching status:', error);
+            }
+        }
+        
+        window.onload = updateStatus;
+        setInterval(updateStatus, 5000); 
+    </script>
+</body>
+</html>
